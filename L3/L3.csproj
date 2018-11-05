@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DrawFigure.cs" />
     <Compile Include="Form_L3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +79,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libDrawing\libDrawing.csproj">
+      <Project>{C4BA693E-5B1E-4B61-8607-3C298BE7EDB1}</Project>
+      <Name>libDrawing</Name>
+    </ProjectReference>
+  </ItemGroup>
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

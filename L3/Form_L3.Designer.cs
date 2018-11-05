@@ -1,4 +1,6 @@
-﻿namespace L3
+﻿using System.Windows.Forms;
+
+namespace L3
 {
     partial class Form_L3
     {
@@ -31,6 +33,8 @@
             this.textBoxR = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonRun = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxR
@@ -60,19 +64,31 @@
             this.buttonRun.UseVisualStyleBackColor = true;
             this.buttonRun.Click += new System.EventHandler(this.buttonRun_Click);
             // 
+
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(267, 12);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(775, 474);
+            this.pictureBox.TabIndex = 3;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMove);
+            // 
             // Form_L3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1054, 498);
+            this.Controls.Add(this.pictureBox);
+
             this.Controls.Add(this.buttonRun);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxR);
             this.Name = "Form_L3";
             this.Text = "Form_L3";
-            this.Load += new System.EventHandler(this.Form_L3_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form_L3_Paint);
+
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -83,6 +99,7 @@
         private System.Windows.Forms.TextBox textBoxR;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonRun;
+        private System.Windows.Forms.PictureBox pictureBox;
     }
 }
 
