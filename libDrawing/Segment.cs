@@ -24,7 +24,7 @@ namespace libDrawing
 
         public void Draw(Bitmap targetBitmap, Point worldCenter)
         {
-            DrawFigure.DrawCircle(targetBitmap, worldCenter.X + Position.X, worldCenter.Y + Position.Y, R, SAngle, FAngle);
+            DrawFigure.DrawPie(targetBitmap, worldCenter.X + Position.X, worldCenter.Y + Position.Y, R, R, SAngle, FAngle);
         }
     }
 }

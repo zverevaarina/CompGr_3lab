@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace libDrawing
 {
@@ -6,27 +7,6 @@ namespace libDrawing
     {
         static int I1 = 0, J1 = 0, I2, J2;
         public static double x1 = -0.1, y1 = -1, x2 = 3.1, y2 = 16;
-        public delegate int IJ(double x);
-
-        static int II(double x)
-        {
-            return I1 + (int)((x - x1) * (I2 - I1) / (x2 - x1));
-        }
-
-        public static double XX(int I)
-        {
-            return x1 + (I - I1) * (x2 - x1) / (I2 - I1);
-        }
-
-        static int JJ(double y)
-        {
-            return J2 + (int)((y - y1) * (J1 - J2) / (y2 - y1));
-        }
-
-        public static double YY(int J)
-        {
-            return y1 + (J - J2) * (y2 - y1) / (J1 - J2);
-        }
 
         public static void DrawCircle(Bitmap bmp, int x, int y, int r, int sAngle, int fAngle)
         {
@@ -37,14 +17,6 @@ namespace libDrawing
             int e = 0;
             while (_y >= 0)
             {
-                /*switch (k)
-                {
-                    case 1: bmp.SetPixel(x + _x, y - _y, Color.Black); break;
-                    case 2: bmp.SetPixel(x - _x, y - _y, Color.Black); break;
-                    case 3: bmp.SetPixel(x - _x, y + _y, Color.Black); break;
-                    case 4: bmp.SetPixel(x + _x, y + _y, Color.Black); break;
-                }*/
-
                 try { 
                     bmp.SetPixel(x + _x, y - _y, Color.Black);
                     bmp.SetPixel(x - _x, y - _y, Color.Black);
@@ -77,36 +49,17 @@ namespace libDrawing
                 }
 
             }
-            /*int x := 0
-   int y := R
-   int delta := 1 - 2 * R
-   int error := 0
-   while (y >= 0)
-       drawpixel(X1 + x, Y1 + y)
-       drawpixel(X1 + x, Y1 - y)
-       drawpixel(X1 - x, Y1 + y)
-       drawpixel(X1 - x, Y1 - y)
-       error = 2 * (delta + y) - 1
-       if ((delta < 0) && (error <= 0))
-           delta += 2 * ++x + 1
-           continue
-       if ((delta > 0) && (error > 0))
-           delta -= 2 * --y + 1
-           continue
-       delta += 2 * (++x - y--)*/
         }
 
 
-        /*public static void DrawPie(Bitmap bmp, int x, int y, int a, int b, int sAngle, int fAngle)//, Rectangle ClientRectangle)
+        public static void DrawPie(Bitmap bmp, int x, int y, int a, int b, int sAngle, int fAngle)
         {
-            DrawArc(bmp, x, y, a, b, sAngle, fAngle);//, ClientRectangle);
+            DrawArc(bmp, x, y, a, b, sAngle, fAngle);
 
             //кординаты начала сектора
             int xs = Math.Abs((int)(a * Math.Cos((sAngle * (Math.PI / 180)))));
             int ys = Math.Abs((int)(b * Math.Sin((sAngle * (Math.PI / 180)))));
             int k = x + xs, l = y - ys;
-
-            //DrawLine2(bmp, Color.Red, x, y, 486, 206);
             
             if (sAngle < 90) DrawLine(bmp, Color.Black, x, y, x + xs, y - ys);
             else if (sAngle >= 90 && sAngle < 180) DrawLine(bmp, Color.Black, x, y, x - xs, y - ys);
@@ -122,20 +75,17 @@ namespace libDrawing
             else if (fAngle >= 180 && fAngle < 270) DrawLine(bmp, Color.Black, x, y, x - xf, y + yf);
             else if (fAngle >= 270) DrawLine(bmp, Color.Black, x, y, x + xf, y + yf);
         }
-
-        public static void DrawArc(Bitmap bmp, int x, int y, int a, int b, int sAngle, int fAngle)//, Rectangle ClientRectangle)
+        
+        public static void DrawArc(Bitmap bmp, int x, int y, int a, int b, int sAngle, int fAngle)
         {
-            /*I2 = ClientRectangle.Width;
-            J2 = ClientRectangle.Height;
-
             int sAngleCopy, fAngleCopy, _x, _y, max;
             if (fAngle > 360)
             {
                 fAngle = fAngle - 360;
                 int t = sAngle; sAngle = fAngle; fAngle = t;
             }
-            //int sQ = (int)sAngle / 90;
-            //int l = sQ;
+            int sQ = (int)sAngle / 90;
+            int l = sQ;
             //1
             if (sAngle <= 90)
             {
@@ -262,6 +212,6 @@ namespace libDrawing
                 y += dy;
                 bmp.SetPixel((int)x, (int)y, color);
             }
-        }*/
         }
     }
+}
