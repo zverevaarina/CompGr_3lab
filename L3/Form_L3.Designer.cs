@@ -64,7 +64,6 @@ namespace L3
             this.buttonRun.UseVisualStyleBackColor = true;
             this.buttonRun.Click += new System.EventHandler(this.buttonRun_Click);
             // 
-
             // pictureBox
             // 
             this.pictureBox.Location = new System.Drawing.Point(267, 12);
@@ -81,13 +80,11 @@ namespace L3
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1054, 498);
             this.Controls.Add(this.pictureBox);
-
             this.Controls.Add(this.buttonRun);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxR);
             this.Name = "Form_L3";
             this.Text = "Form_L3";
-
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
