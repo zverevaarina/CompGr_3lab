@@ -17,7 +17,8 @@ namespace libDrawing
             int e = 0;
             while (_y >= 0)
             {
-                try { 
+                try
+                {
                     bmp.SetPixel(x + _x, y - _y, Color.Black);
                     bmp.SetPixel(x - _x, y - _y, Color.Black);
                     bmp.SetPixel(x - _x, y + _y, Color.Black);
@@ -60,7 +61,7 @@ namespace libDrawing
             int xs = Math.Abs((int)(a * Math.Cos((sAngle * (Math.PI / 180)))));
             int ys = Math.Abs((int)(b * Math.Sin((sAngle * (Math.PI / 180)))));
             int k = x + xs, l = y - ys;
-            
+
             if (sAngle < 90) DrawLine(bmp, Color.Black, x, y, x + xs, y - ys);
             else if (sAngle >= 90 && sAngle < 180) DrawLine(bmp, Color.Black, x, y, x - xs, y - ys);
             else if (sAngle >= 180 && sAngle < 270) DrawLine(bmp, Color.Black, x, y, x - xs, y + ys);
@@ -75,7 +76,7 @@ namespace libDrawing
             else if (fAngle >= 180 && fAngle < 270) DrawLine(bmp, Color.Black, x, y, x - xf, y + yf);
             else if (fAngle >= 270) DrawLine(bmp, Color.Black, x, y, x + xf, y + yf);
         }
-        
+
         public static void DrawArc(Bitmap bmp, int x, int y, int a, int b, int sAngle, int fAngle)
         {
             int sAngleCopy, fAngleCopy, _x, _y, max;
@@ -142,7 +143,7 @@ namespace libDrawing
                 DrawAll(bmp, x, y, 4, max, a, b, _x, _y);
             }
         }
-        
+
         private static void DrawAll(Bitmap bmp, int x, int y, int k, int max, int a, int b, int _x, int _y)
         {
             int a_sqr = a * a;
