@@ -83,6 +83,7 @@ namespace L3
             this.Controls.Add(this.buttonRun);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxR);
+            this.KeyPreview = true;
             this.Name = "Form_L3";
             this.Text = "Form_L3";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
