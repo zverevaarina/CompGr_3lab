@@ -22,9 +22,9 @@ namespace libDrawing
             FAngle = fAngle;
         }
 
-        public void Draw(Bitmap targetBitmap, Point worldCenter)
+        public void Draw(Bitmap targetBitmap, float scale, Point worldCenter)
         {
-            DrawFigure.DrawPie(targetBitmap, worldCenter.X + Position.X, worldCenter.Y + Position.Y, R, R, SAngle, FAngle);
+            DrawFigure.DrawPie(targetBitmap, worldCenter.X + Position.X, worldCenter.Y + Position.Y, (int)(R * scale), (int)(R * scale), SAngle, FAngle);
         }
     }
 }

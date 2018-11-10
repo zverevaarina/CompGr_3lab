@@ -152,45 +152,79 @@ namespace libDrawing
 
             while ((a_sqr * (2 * _y - 1) > 2 * b_sqr * (_x + 1)) && (_y >= max))
             {
-                switch (k)
+                try
                 {
-                    case 1: bmp.SetPixel(x + _x, y - _y, Color.Black); break;
-                    case 2: bmp.SetPixel(x - _x, y - _y, Color.Black); break;
-                    case 3: bmp.SetPixel(x - _x, y + _y, Color.Black); break;
-                    case 4: bmp.SetPixel(x + _x, y + _y, Color.Black); break;
+                    switch (k)
+                    {
+                        case 1:
+                            bmp.SetPixel(x + _x, y - _y, Color.Black);
+                            break;
+                        case 2:
+                            bmp.SetPixel(x - _x, y - _y, Color.Black);
+                            break;
+                        case 3:
+                            bmp.SetPixel(x - _x, y + _y, Color.Black);
+                            break;
+                        case 4:
+                            bmp.SetPixel(x + _x, y + _y, Color.Black);
+                            break;
+                    }
+
+                    if (d < 0)
+                    {
+                        _x++;
+                        d += 4 * b_sqr * (2 * _x + 3);
+                    }
+                    else
+                    {
+                        _x++;
+                        _y--;
+                        d = d - 8 * a_sqr * (_y - 1) + 4 * b_sqr * (2 * _x + 3);
+                    }
                 }
-                if (d < 0)
+                catch
                 {
-                    _x++;
-                    d += 4 * b_sqr * (2 * _x + 3);
+                    break;
                 }
-                else
-                {
-                    _x++; _y--;
-                    d = d - 8 * a_sqr * (_y - 1) + 4 * b_sqr * (2 * _x + 3);
-                }
-            }
+        }
 
             d = b_sqr * ((2 * _x + 1) * (2 * _x + 1)) + 4 * a_sqr * ((_y + 1) * (_y + 1)) - 4 * a_sqr * b_sqr;
 
             while ((_y + 1 != 0) && (_y >= max))
             {
-                switch (k)
+                try
                 {
-                    case 1: bmp.SetPixel(x + _x, y - _y, Color.Black); break;
-                    case 2: bmp.SetPixel(x - _x, y - _y, Color.Black); break;
-                    case 3: bmp.SetPixel(x - _x, y + _y, Color.Black); break;
-                    case 4: bmp.SetPixel(x + _x, y + _y, Color.Black); break;
+                    switch (k)
+                    {
+                        case 1:
+                            bmp.SetPixel(x + _x, y - _y, Color.Black);
+                            break;
+                        case 2:
+                            bmp.SetPixel(x - _x, y - _y, Color.Black);
+                            break;
+                        case 3:
+                            bmp.SetPixel(x - _x, y + _y, Color.Black);
+                            break;
+                        case 4:
+                            bmp.SetPixel(x + _x, y + _y, Color.Black);
+                            break;
+                    }
+
+                    if (d < 0)
+                    {
+                        _y--;
+                        d += 4 * a_sqr * (2 * _y + 3);
+                    }
+                    else
+                    {
+                        _y--;
+                        _x++;
+                        d = d - 8 * b_sqr * (_x + 1) + 4 * a_sqr * (2 * _y + 3);
+                    }
                 }
-                if (d < 0)
+                catch
                 {
-                    _y--;
-                    d += 4 * a_sqr * (2 * _y + 3);
-                }
-                else
-                {
-                    _y--; _x++;
-                    d = d - 8 * b_sqr * (_x + 1) + 4 * a_sqr * (2 * _y + 3);
+                    break;
                 }
             }
         }
@@ -209,9 +243,16 @@ namespace libDrawing
             double x = x1, y = y1;
             for (int i = 0; i <= L; i++)
             {
-                x += dx;
-                y += dy;
-                bmp.SetPixel((int)x, (int)y, color);
+                try
+                {
+                    x += dx;
+                    y += dy;
+                    bmp.SetPixel((int) x, (int) y, color);
+                }
+                catch
+                {
+                    break;
+                }
             }
         }
     }

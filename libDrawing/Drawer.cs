@@ -21,13 +21,18 @@ namespace libDrawing
             _height = height;
         }
 
-        public Bitmap Draw(Segment s, bool drawObj = false)
+        public Bitmap Draw(Segment s, float scale = 1, bool drawObj = true)
         {
-            var bmp = new Bitmap(_width, _height);
-            s.Draw(bmp, WorldCenter);
-            if (drawObj)
-                Graphics.FromImage(bmp).DrawEllipse(new Pen(Color.Aqua, 2), WorldCenter.X - 5, WorldCenter.Y - 5, 10, 10);
-            return bmp;
+            if (scale >= 0)
+            {
+                var bmp = new Bitmap(_width, _height);
+                s.Draw(bmp, scale, WorldCenter);
+                if (drawObj)
+                    Graphics.FromImage(bmp)
+                        .DrawEllipse(new Pen(Color.Aqua, 2), WorldCenter.X - 5, WorldCenter.Y - 5, 10, 10);
+                return bmp;
+            }
+            return null;
         }
     }
 }
